@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clicker</title>
-    <script src="js/index.js"></script>
+    <script src="js/turrets.js" defer></script>
     <link href="styles/styles.css" rel="stylesheet" />
   </head>
   <body>
@@ -41,18 +41,36 @@
         <!-- tourrelles -->
         <div class="turrets">
           <div class="box-ketchup">
-            <img class="bottle-ketchup" src="./assets/img/ketchup-bottle.png" />
-            <img class="splash-ketchup" src="./assets/img/ketchup-splash.png" />
+            <img
+              id="bottle-ketchup"
+              class="bottle-ketchup"
+              src="./assets/img/ketchup-bottle.png" />
+            <img
+              id="splash-ketchup"
+              class="splash-ketchup"
+              src="./assets/img/ketchup-splash.png" />
           </div>
           <img class="sandbag" src="./assets/img/sandbag.png" />
           <div class="box-mayo">
-            <img class="bottle-mayo" src="./assets/img/mayo-bottle.png" />
-            <img class="splash-mayo" src="./assets/img/mayo-splash.png" />
+            <img
+              id="bottle-mayo"
+              class="bottle-mayo"
+              src="./assets/img/mayo-bottle.png" />
+            <img
+              id="splash-mayo"
+              class="splash-mayo"
+              src="./assets/img/mayo-splash.png" />
           </div>
           <img class="sandbag" src="./assets/img/sandbag.png" />
           <div class="box-bbq">
-            <img class="bottle-bbq" src="./assets/img/bbq-bottle.png" />
-            <img class="splash-bbq" src="./assets/img/bbq-splash.png" />
+            <img
+              id="bottle-bbq"
+              class="bottle-bbq"
+              src="./assets/img/bbq-bottle.png" />
+            <img
+              id="splash-bbq"
+              class="splash-bbq"
+              src="./assets/img/bbq-splash.png" />
           </div>
         </div>
       </section>
@@ -73,20 +91,20 @@
           </div>
         </div>
         <div class="box-small-button">
-          <div id="" class="small-button green">
-            <p>Level: <span>1</span></p>
+          <div id="ketchup" value="ketchup" class="small-button gray">
+            <p>Level: <span id="level-ketchup">1</span></p>
             <p class="object">Ketchuprelle</p>
-            <p>Frites: <span>100</span></p>
+            <p>Frites: <span id="cost-ketchup">100</span></p>
           </div>
-          <div id="" class="small-button yellow">
-            <p>Level: <span>1</span></p>
+          <div id="mayo" value="mayo" class="small-button gray">
+            <p>Level: <span id="level-mayo">1</span></p>
             <p class="object">Mayorelle</p>
-            <p>Frites: <span>500</span></p>
+            <p>Frites: <span id="cost-mayo">500</span></p>
           </div>
-          <div id="" class="small-button gray">
-            <p>Level: <span>1</span></p>
+          <div id="bbq" value="bbq" class="small-button gray">
+            <p>Level: <span id="level-bbq">1</span></p>
             <p class="object">Barbekurelle</p>
-            <p>Frites: <span>1000</span></p>
+            <p>Frites: <span id="cost-bbq">1000</span></p>
           </div>
         </div>
       </section>
