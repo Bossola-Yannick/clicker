@@ -139,6 +139,7 @@ main {
 .bottle-ketchup,
 .bottle-mayo,
 .bottle-bbq {
+  visibility: hidden;
   width: fit-content;
   height: 70%;
   display: flex;
@@ -159,12 +160,13 @@ main {
 .splash-ketchup,
 .splash-mayo,
 .splash-bbq {
-  /* visibility: hidden; */
+  visibility: hidden;
   width: 20%;
   height: auto;
   position: absolute;
   bottom: -22%;
   z-index: 5;
+  transition: all 0.3s ease;
 }
 .splash-ketchup {
   left: 2%;
