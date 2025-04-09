@@ -1,5 +1,6 @@
 // gestion des click générant des points
-$("#click-box").on("click", function () {
+$("#click-box").on("click", function (e) {
+  e.stopPropagation;
   addPoints();
 });
 // gestion du click

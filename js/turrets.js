@@ -1,4 +1,3 @@
-fries = parseInt(localStorage.getItem("fries"));
 // tourelles
 const ketchup = {
   level: 0,
@@ -61,14 +60,17 @@ const buyTurret = (turret, score, turretName) => {
 };
 
 turretKetchup.addEventListener("click", () => {
+  fries = parseInt(localStorage.getItem("fries"));
   const value = turretKetchup.getAttribute("value");
   buyTurret(ketchup, fries, value);
 });
 turretMayo.addEventListener("click", () => {
+  fries = parseInt(localStorage.getItem("fries"));
   const value = turretMayo.getAttribute("value");
   buyTurret(mayo, fries, value);
 });
 turretBbq.addEventListener("click", () => {
+  fries = parseInt(localStorage.getItem("fries"));
   const value = turretBbq.getAttribute("value");
   buyTurret(bbq, fries, value);
 });
@@ -78,6 +80,7 @@ turretBbq.addEventListener("click", () => {
 // **************************
 const dmgTurret = () => {
   // local storage info
+  let friesUpdate = parseInt(localStorage.getItem("fries"));
   const ketchup = JSON.parse(localStorage.getItem("ketchup"));
   const mayo = JSON.parse(localStorage.getItem("mayo"));
   const bbq = JSON.parse(localStorage.getItem("bbq"));
@@ -87,14 +90,14 @@ const dmgTurret = () => {
   const splashBbq = document.getElementById("splash-bbq");
 
   if (ketchup.level > 0) {
-    fries += ketchup.damage;
+    friesUpdate += ketchup.damage;
     splashKet.style.visibility = "visible";
     setTimeout(() => {
       splashKet.style.visibility = "hidden";
     }, 50);
   }
   if (mayo.level > 0) {
-    fries += mayo.damage;
+    friesUpdate += mayo.damage;
     setTimeout(() => {
       splashMay.style.visibility = "visible";
       setTimeout(() => {
@@ -103,7 +106,7 @@ const dmgTurret = () => {
     }, 100);
   }
   if (bbq.level > 0) {
-    fries += bbq.damage;
+    friesUpdate += bbq.damage;
     setTimeout(() => {
       splashBbq.style.visibility = "visible";
       setTimeout(() => {
@@ -112,8 +115,8 @@ const dmgTurret = () => {
     }, 150);
   }
 
-  localStorage.setItem("fries", fries);
-  friesBox.innerText = fries;
+  localStorage.setItem("fries", friesUpdate);
+  friesBox.innerText = friesUpdate;
 };
 
 setInterval(dmgTurret, 1000);
