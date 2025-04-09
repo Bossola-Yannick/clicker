@@ -52,12 +52,16 @@ const upgradeNbPerso = () => {
         valNbPerso = "4";
         localStorage.setItem("nb-perso", valNbPerso);
         $("#level-nbPerso").text("max");
-        persoPrice += persoPrice * 1.5;
         localStorage.setItem("perso-price", persoPrice);
-        $("#perso-price").text(persoPrice);
+        $("#perso-price").text("max level");
         break;
     }
     localStorage.setItem("fries", downFries);
     $("#fries").text(downFries);
+  } else {
+    $("#upgradeNbPerso").removeClass("green").addClass("maxLevel");
+    setTimeout(() => {
+      $("#upgradeNbPerso").removeClass("maxLevel").addClass("green");
+    }, 1000);
   }
 };

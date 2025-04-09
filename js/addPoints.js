@@ -9,10 +9,10 @@ const addPoints = () => {
       levelPoints = levelPoints * 2;
       break;
     case 3:
-      levelPoints = levelPoints * 2 + Math.ceil(levelPoints / 2);
+      levelPoints = levelPoints * 3 + Math.ceil(levelPoints / 2);
       break;
     case 4:
-      levelPoints = levelPoints * 3;
+      levelPoints = levelPoints * 5;
   }
   fries = parseInt(localStorage.getItem("fries"));
   fries += levelPoints;

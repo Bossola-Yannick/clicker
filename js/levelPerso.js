@@ -9,8 +9,13 @@ const upgradePerso = () => {
     levelPerso += 1;
     localStorage.setItem("level-perso", levelPerso);
     $("#level-points").text(levelPerso);
-    pointsLevel = Math.ceil(pointsLevel * 1.5);
+    pointsLevel = Math.ceil(pointsLevel * 1.2);
     localStorage.setItem("points-level", pointsLevel);
     $("#level-price").text(pointsLevel);
+  } else {
+    $("#upgradeLevelPoints").removeClass("green").addClass("maxLevel");
+    setTimeout(() => {
+      $("#upgradeLevelPoints").removeClass("maxLevel").addClass("green");
+    }, 1000);
   }
 };
