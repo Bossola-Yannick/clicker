@@ -13,12 +13,15 @@
   background-color: #178800;
 }
 .gray {
-  background-color: rgb(147, 147, 147) ;
+  background-color: rgb(147, 147, 147);
 }
 .yellow {
   background-color: rgb(255, 236, 62);
 }
-
+.maxLevel {
+  cursor: none;
+  background-color: red;
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -92,6 +95,10 @@ main {
   height: 100%;
 }
 
+.nuggets-hidden {
+  visibility: hidden;
+}
+
 /* tourrelles */
 .turrets {
   /* background-color: white; */
@@ -107,7 +114,7 @@ main {
   width: 20%;
   height: auto;
   object-fit: contain;
-  flex:1;
+  flex: 1;
   z-index: 2;
 }
 
@@ -233,8 +240,7 @@ main {
   font-weight: bold;
 }
 
-@media screen and (min-height:799px) {
-
+@media screen and (min-height: 799px) {
   body {
     background-image: url(../assets/img/test.jpg);
     width: 100vw;
@@ -249,6 +255,6 @@ main {
   main {
     width: 450px;
     height: 100vh;
-    border: 1rem solid #000000e2; 
+    border: 1rem solid #000000e2;
   }
 }
