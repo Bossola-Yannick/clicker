@@ -1,6 +1,4 @@
-let fries = 100000;
-localStorage.setItem("fries", JSON.stringify(fries));
-
+fries = parseInt(localStorage.getItem("fries"));
 // tourelles
 const ketchup = {
   level: 0,
@@ -26,6 +24,8 @@ localStorage.setItem("bbq", JSON.stringify(bbq));
 const turretKetchup = document.getElementById("ketchup");
 const turretMayo = document.getElementById("mayo");
 const turretBbq = document.getElementById("bbq");
+// score element
+const friesBox = document.getElementById("fries");
 
 // **************************
 // ACHAT LEVEL UP
@@ -37,7 +37,8 @@ const buyTurret = (turret, score, turretName) => {
 
   if (score >= turret.cost) {
     score -= turret.cost;
-    localStorage.setItem("fries", JSON.stringify(score));
+    localStorage.setItem("fries", score);
+    friesBox.innerText = score;
     button.classList.remove("gray");
     button.classList.add("green");
     // modif localStorage
@@ -80,8 +81,7 @@ const dmgTurret = () => {
   const ketchup = JSON.parse(localStorage.getItem("ketchup"));
   const mayo = JSON.parse(localStorage.getItem("mayo"));
   const bbq = JSON.parse(localStorage.getItem("bbq"));
-
-  // splash element
+  // splash elements
   const splashKet = document.getElementById("splash-ketchup");
   const splashMay = document.getElementById("splash-mayo");
   const splashBbq = document.getElementById("splash-bbq");
@@ -113,6 +113,7 @@ const dmgTurret = () => {
   }
 
   localStorage.setItem("fries", fries);
+  friesBox.innerText = fries;
 };
 
 setInterval(dmgTurret, 1000);
