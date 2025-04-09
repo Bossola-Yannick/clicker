@@ -32,7 +32,7 @@ main {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-image: url(../assets/img/test.jpg);
+  background-image: url(../assets/img/grass-bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -180,14 +180,17 @@ main {
 
 /* pattates */
 #click-box {
-  background-color: rgb(127, 0, 246);
-  width: 100%;
+  background-color: rgba(0, 66, 0, 0.271);
+  width: 95%;
   height: 60%;
+  margin: 0 auto;
   position: relative;
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 4px solid rgba(0, 66, 0, 0.469);
+  border-radius: 12px;
 }
 
 .potato {
