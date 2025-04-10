@@ -1,24 +1,3 @@
-// tourelles
-// const ketchup = {
-//   level: 0,
-//   cost: 100,
-//   damage: 0,
-// };
-// const mayo = {
-//   level: 0,
-//   cost: 500,
-//   damage: 0,
-// };
-// const bbq = {
-//   level: 0,
-//   cost: 1000,
-//   damage: 0,
-// };
-
-// localStorage.setItem("ketchup", JSON.stringify(ketchup));
-// localStorage.setItem("mayo", JSON.stringify(mayo));
-// localStorage.setItem("bbq", JSON.stringify(bbq));
-
 ketchup = JSON.parse(localStorage.getItem("ketchup"));
 mayo = JSON.parse(localStorage.getItem("mayo"));
 bbq = JSON.parse(localStorage.getItem("bbq"));
@@ -44,6 +23,17 @@ bbqCost.innerText = bbq.cost;
 // score element
 const friesBox = document.getElementById("fries");
 
+// Exemple JS
+const getCost = (turret) => {
+  return Math.floor(turret.baseCost * Math.pow(turret.costX, turret.level));
+};
+
+const getDPS = (turret) => {
+  return Math.floor(
+    +(turret.baseDamage * Math.pow(turret.level, turret.damageX)).toFixed(2)
+  );
+};
+
 // **************************
 // ACHAT LEVEL UP
 // **************************
@@ -60,8 +50,8 @@ const buyTurret = (turret, score, turretName) => {
     button.classList.add("green");
     // modif localStorage
     turret.level += 1;
-    turret.cost *= 2;
-    turret.damage += 3;
+    turret.cost = getCost(turret);
+    turret.damage = getDPS(turret);
     localStorage.setItem(turretName, JSON.stringify(turret));
     // modif affichage
     turretLevel.innerText = turret.level;
