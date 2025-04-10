@@ -10,4 +10,12 @@ const potatoMaker = () => {
   potato.css("top", imgTop);
   potato.css("left", imgLeft);
 };
+
+// const chargePotato = () => {
+//   let goPotato = Math.random() * (5 - 1) + 1;
+//   for (let i = 0; i < goPotato; i++) {
+//     potatoMaker();
+//   }
+// };
+
 setInterval(potatoMaker, 700);

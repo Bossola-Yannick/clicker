@@ -3,16 +3,16 @@ const addPoints = () => {
   persoBonus = Math.ceil(parseInt(localStorage.getItem("nb-perso")));
   switch (persoBonus) {
     case 1:
-      levelPoints = levelPoints + Math.ceil(levelPoints / 2);
+      levelPoints = Math.floor(levelPoints + 1.5);
       break;
     case 2:
       levelPoints = levelPoints * 2;
       break;
     case 3:
-      levelPoints = levelPoints * 3 + Math.ceil(levelPoints / 2);
+      levelPoints = Math.floor(levelPoints * 3.5);
       break;
     case 4:
-      levelPoints = levelPoints * 5;
+      levelPoints = levelPoints * 4;
   }
   fries = parseInt(localStorage.getItem("fries"));
   fries += levelPoints;

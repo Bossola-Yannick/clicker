@@ -4,6 +4,7 @@ let levelPerso;
 let levelPrice;
 let persoPrice;
 let valNbPerso = localStorage.getItem("nb-perso");
+let level;
 // récupération des données de jeu si elle existe
 if (localStorage.getItem("nb-perso")) {
   $("#upgradeNbPerso")
@@ -30,6 +31,7 @@ if (localStorage.getItem("nb-perso")) {
       $("#add-nuggets-two").removeClass("nuggets-hidden");
       $("#add-nuggets-tree").removeClass("nuggets-hidden");
       $("#add-nuggets-for").removeClass("nuggets-hidden");
+      $("#upgradeNbPerso").removeClass("green").addClass("maxLevel");
       break;
   }
 }
@@ -54,11 +56,11 @@ if (!localStorage.getItem("level-perso")) {
 $("#level-points").text(levelPerso);
 
 // initialisation valeur des levels perso
-if (!localStorage.getItem("points-level")) {
-  localStorage.setItem("points-level", 5);
-  levelPrice = localStorage.getItem("points-level");
+if (!localStorage.getItem("level-price")) {
+  localStorage.setItem("level-price", 5);
+  levelPrice = localStorage.getItem("level-price");
 } else {
-  levelPrice = localStorage.getItem("points-level");
+  levelPrice = localStorage.getItem("level-price");
 }
 $("#level-price").text(levelPrice);
 
@@ -70,7 +72,14 @@ if (!localStorage.getItem("perso-price")) {
   persoPrice = localStorage.getItem("perso-price");
 }
 $("#perso-price").text(persoPrice);
-
+// initialisation level du joueur
+if (!localStorage.getItem("level")) {
+  localStorage.setItem("level", 1);
+  level = parseInt(localStorage.getItem("level"));
+} else {
+  level = parseInt(localStorage.getItem("level"));
+}
+$("#level-points").text(level);
 // initialisation tourrelles
 if (!localStorage.getItem("ketchup")) {
   const ketchup = {

@@ -14,10 +14,10 @@
   background-color: #178800;
 }
 .gray {
-  background-color: rgb(147, 147, 147);
+  background-color: #239ca786;
 }
 .yellow {
-  background-color: rgb(255, 236, 62);
+  background-color: rgba(255, 236, 62, 0.712);
 }
 .maxLevel {
   cursor: none;
