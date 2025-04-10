@@ -10,4 +10,4 @@ const potatoMaker = () => {
   potato.css("top", imgTop);
   potato.css("left", imgLeft);
 };
-// setInterval(potatoMaker, 700);
+setInterval(potatoMaker, 700);

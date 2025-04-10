@@ -9,7 +9,6 @@ $("#upgradeLevelPoints").on("click", function () {
   upgradePerso();
 });
 let nbPersoLevel = parseInt(localStorage.getItem("nb-perso"));
-console.log(nbPersoLevel);
 
 // gestion du nombre de personnage
 $("#upgradeNbPerso").on("click", function () {
