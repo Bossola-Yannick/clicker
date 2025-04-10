@@ -8,8 +8,12 @@ $("body").on("click", ".potato", function (e) {
 $("#upgradeLevelPoints").on("click", function () {
   upgradePerso();
 });
+let nbPersoLevel = parseInt(localStorage.getItem("nb-perso"));
+console.log(nbPersoLevel);
 
 // gestion du nombre de personnage
 $("#upgradeNbPerso").on("click", function () {
-  upgradeNbPerso();
+  if (nbPersoLevel !== 4) {
+    upgradeNbPerso();
+  }
 });
