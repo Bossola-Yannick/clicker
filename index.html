@@ -4,7 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Clicker</title>
-    <script src="js/index.js"></script>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/startGame.js" defer></script>
+    <script src="./js/clickEvent.js" defer></script>
+    <script src="./js/levelPerso.js" defer></script>
+    <script src="./js/nbPerso.js" defer></script>
+    <script src="./js/addPoints.js" defer></script>
+    <script src="./js/turrets.js" defer></script>
+    <script src="./js/patatoes.js" defer></script>
+
     <link href="styles/styles.css" rel="stylesheet" />
   </head>
   <body>
@@ -12,81 +21,116 @@
       <section id="user-body">
         <!-- score -->
         <div class="score">
-          <p>Frites: <span>13748702</span></p>
+          <p>Frites: <span id="fries"></span></p>
         </div>
         <!-- personnages -->
         <div class="nuggets-box">
           <div class="nuggets-two">
             <img
-              class="small-nuggets"
-              src="./assets/img/nuggetsRambo-detour.png" />
+              id="add-nuggets-tree"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
             <img
-              class="small-nuggets"
-              src="./assets/img/nuggetsRambo-detour.png" />
+              id="add-nuggets-one"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
           </div>
           <div class="nuggets-solo">
             <img
               class="big-nugget"
-              src="./assets/img/nuggetsRambo-detour.png" />
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
           </div>
           <div class="nuggets-two">
             <img
-              class="small-nuggets"
-              src="./assets/img/nuggetsRambo-detour.png" />
+              id="add-nuggets-for"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
             <img
-              class="small-nuggets"
-              src="./assets/img/nuggetsRambo-detour.png" />
+              id="add-nuggets-two"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
           </div>
         </div>
         <!-- tourrelles -->
         <div class="turrets">
           <div class="box-ketchup">
-            <img class="bottle-ketchup" src="./assets/img/ketchup-bottle.png" />
-            <img class="splash-ketchup" src="./assets/img/ketchup-splash.png" />
+            <img
+              id="bottle-ketchup"
+              class="bottle-ketchup"
+              src="./assets/img/ketchup-bottle.png"
+            />
+            <img
+              id="splash-ketchup"
+              class="splash-ketchup"
+              src="./assets/img/ketchup-splash.png"
+            />
           </div>
           <img class="sandbag" src="./assets/img/sandbag.png" />
           <div class="box-mayo">
-            <img class="bottle-mayo" src="./assets/img/mayo-bottle.png" />
-            <img class="splash-mayo" src="./assets/img/mayo-splash.png" />
+            <img
+              id="bottle-mayo"
+              class="bottle-mayo"
+              src="./assets/img/mayo-bottle.png"
+            />
+            <img
+              id="splash-mayo"
+              class="splash-mayo"
+              src="./assets/img/mayo-splash.png"
+            />
           </div>
           <img class="sandbag" src="./assets/img/sandbag.png" />
           <div class="box-bbq">
-            <img class="bottle-bbq" src="./assets/img/bbq-bottle.png" />
-            <img class="splash-bbq" src="./assets/img/bbq-splash.png" />
+            <img
+              id="bottle-bbq"
+              class="bottle-bbq"
+              src="./assets/img/bbq-bottle.png"
+            />
+            <img
+              id="splash-bbq"
+              class="splash-bbq"
+              src="./assets/img/bbq-splash.png"
+            />
           </div>
         </div>
       </section>
       <section class="game-body">
+        <!-- début de la box patate -->
         <div id="click-box">
-          <img class="potato" src="./assets/img/icon-fav.png" />
+          <!-- ICI se déroule l'attaque des Potatos -->
         </div>
+        <!-- fin de la box patate -->
         <div class="box-big-button">
-          <div id="" class="big-button green">
-            <p>Level: <span>1</span></p>
+          <div id="upgradeLevelPoints" class="big-button green">
+            <p>Level: <span id="level-points">1</span></p>
             <p class="object">+ de points</p>
-            <p>Frites: <span>100</span></p>
+            <p>Frites: <span id="level-price"></span></p>
           </div>
-          <div id="" class="big-button green">
-            <p>Level: <span>1</span></p>
+          <div id="upgradeNbPerso" class="big-button gray" value="1">
+            <p>Level: <span id="level-nbPerso"></span></p>
             <p class="object">+ de perso</p>
-            <p>Frites: <span>1000</span></p>
+            <p>Frites: <span id="perso-price"></span></p>
           </div>
         </div>
         <div class="box-small-button">
-          <div id="" class="small-button green">
-            <p>Level: <span>1</span></p>
+          <div id="ketchup" value="ketchup" class="small-button gray">
+            <p>Level: <span id="level-ketchup"></span></p>
             <p class="object">Ketchuprelle</p>
-            <p>Frites: <span>100</span></p>
+            <p>Frites: <span id="cost-ketchup"></span></p>
           </div>
-          <div id="" class="small-button yellow">
-            <p>Level: <span>1</span></p>
+          <div id="mayo" value="mayo" class="small-button gray">
+            <p>Level: <span id="level-mayo"></span></p>
             <p class="object">Mayorelle</p>
-            <p>Frites: <span>500</span></p>
+            <p>Frites: <span id="cost-mayo"></span></p>
           </div>
-          <div id="" class="small-button gray">
-            <p>Level: <span>1</span></p>
+          <div id="bbq" value="bbq" class="small-button gray">
+            <p>Level: <span id="level-bbq"></span></p>
             <p class="object">Barbekurelle</p>
-            <p>Frites: <span>1000</span></p>
+            <p>Frites: <span id="cost-bbq"></span></p>
           </div>
         </div>
       </section>

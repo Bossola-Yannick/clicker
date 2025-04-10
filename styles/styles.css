@@ -5,6 +5,7 @@
   list-style: none;
   text-decoration: none;
   font-family: "Roboto", sans-serif;
+  user-select: none;
 }
 
 /* couleurs boutons */
@@ -13,12 +14,15 @@
   background-color: #178800;
 }
 .gray {
-  background-color: rgb(147, 147, 147) ;
+  background-color: rgb(147, 147, 147);
 }
 .yellow {
   background-color: rgb(255, 236, 62);
 }
-
+.maxLevel {
+  cursor: none;
+  background-color: red;
+}
 body {
   width: 100vw;
   height: 100vh;
@@ -59,6 +63,7 @@ main {
   border: 2px solid rgb(244, 208, 0);
   border-radius: 4px;
   font-weight: bold;
+  font-size: 1.3rem;
 }
 
 /* nuggets */
@@ -92,6 +97,10 @@ main {
   height: 100%;
 }
 
+.nuggets-hidden {
+  visibility: hidden;
+}
+
 /* tourrelles */
 .turrets {
   /* background-color: white; */
@@ -107,7 +116,7 @@ main {
   width: 20%;
   height: auto;
   object-fit: contain;
-  flex:1;
+  flex: 1;
   z-index: 2;
 }
 
@@ -132,6 +141,7 @@ main {
 .bottle-ketchup,
 .bottle-mayo,
 .bottle-bbq {
+  visibility: hidden;
   width: fit-content;
   height: 70%;
   display: flex;
@@ -152,12 +162,13 @@ main {
 .splash-ketchup,
 .splash-mayo,
 .splash-bbq {
-  /* visibility: hidden; */
+  visibility: hidden;
   width: 20%;
   height: auto;
   position: absolute;
   bottom: -22%;
   z-index: 5;
+  transition: all 0.3s ease;
 }
 .splash-ketchup {
   left: 2%;
@@ -180,21 +191,15 @@ main {
 
 /* pattates */
 #click-box {
-  background-color: rgba(0, 66, 0, 0.271);
+  background-color: rgba(14, 141, 41, 0.404);
+  border: 3px solid #178800;
+  border-radius: 10px;
   width: 95%;
   height: 60%;
   margin: 0 auto;
   position: relative;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 4px solid rgba(0, 66, 0, 0.469);
-  border-radius: 12px;
-}
-
-.potato {
-  width: 45%;
+  cursor: url("../assets/img/pngegg3232.png"), crosshair;
+  overflow: hidden;
 }
 
 /* boutons */
@@ -217,6 +222,7 @@ main {
   align-items: center;
   border-radius: 6px;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 .big-button {
   width: 45%;
@@ -233,8 +239,26 @@ main {
   font-weight: bold;
 }
 
-@media screen and (min-height:799px) {
+/* l'attaque des Potatoes */
+.potato {
+  width: 5rem;
+  height: 5rem;
+  position: absolute;
+  animation: 3s linear 1s infinite alternate slidein;
+  cursor: url("../assets/img/pngegg3232.png"), crosshair;
+}
+.potato-image {
+  max-width: 100%;
+  max-height: 100%;
+}
 
+@keyframes slidein {
+  to {
+    top: 0%;
+  }
+}
+
+@media screen and (min-height: 799px) {
   body {
     background-image: url(../assets/img/test.jpg);
     width: 100vw;
@@ -249,6 +273,6 @@ main {
   main {
     width: 450px;
     height: 100vh;
-    border: 1rem solid #000000e2; 
+    border: 1rem solid #000000e2;
   }
 }
