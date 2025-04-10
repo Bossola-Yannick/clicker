@@ -1,28 +1,46 @@
 // tourelles
-const ketchup = {
-  level: 0,
-  cost: 100,
-  damage: 0,
-};
-const mayo = {
-  level: 0,
-  cost: 500,
-  damage: 0,
-};
-const bbq = {
-  level: 0,
-  cost: 1000,
-  damage: 0,
-};
+// const ketchup = {
+//   level: 0,
+//   cost: 100,
+//   damage: 0,
+// };
+// const mayo = {
+//   level: 0,
+//   cost: 500,
+//   damage: 0,
+// };
+// const bbq = {
+//   level: 0,
+//   cost: 1000,
+//   damage: 0,
+// };
 
-localStorage.setItem("ketchup", JSON.stringify(ketchup));
-localStorage.setItem("mayo", JSON.stringify(mayo));
-localStorage.setItem("bbq", JSON.stringify(bbq));
+// localStorage.setItem("ketchup", JSON.stringify(ketchup));
+// localStorage.setItem("mayo", JSON.stringify(mayo));
+// localStorage.setItem("bbq", JSON.stringify(bbq));
+
+ketchup = JSON.parse(localStorage.getItem("ketchup"));
+mayo = JSON.parse(localStorage.getItem("mayo"));
+bbq = JSON.parse(localStorage.getItem("bbq"));
 
 // Element boutons
 const turretKetchup = document.getElementById("ketchup");
 const turretMayo = document.getElementById("mayo");
 const turretBbq = document.getElementById("bbq");
+// Element level
+const ketchupLevel = document.getElementById("level-ketchup");
+ketchupLevel.innerText = ketchup.level;
+const mayoLevel = document.getElementById("level-mayo");
+mayoLevel.innerText = mayo.level;
+const bbqLevel = document.getElementById("level-bbq");
+bbqLevel.innerText = bbq.level;
+// Element prix
+const ketchupCost = document.getElementById("cost-ketchup");
+ketchupCost.innerText = ketchup.cost;
+const mayoCost = document.getElementById("cost-mayo");
+mayoCost.innerText = mayo.cost;
+const bbqCost = document.getElementById("cost-bbq");
+bbqCost.innerText = bbq.cost;
 // score element
 const friesBox = document.getElementById("fries");
 
@@ -55,7 +73,10 @@ const buyTurret = (turret, score, turretName) => {
       turretBottle.style.visibility = "visible";
     }
   } else {
-    console.log(score, " pas assez de frites");
+    button.classList.add("maxLevel");
+    setTimeout(() => {
+      button.classList.remove("maxLevel");
+    }, 100);
   }
 };
 
