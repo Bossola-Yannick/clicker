@@ -31,6 +31,7 @@ body {
 
 main {
   width: 100%;
+  max-width: 60vh;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -79,7 +80,7 @@ main {
   filter: drop-shadow(1rem 0.5rem 0.7rem rgb(0, 0, 0, 0.6));
 }
 .nuggets-two {
-  width: fit-content;
+  width: 20%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -87,6 +88,7 @@ main {
   align-items: center;
 }
 .nuggets-solo {
+  width: fit-content;
   height: 100%;
 }
 .small-nuggets {
@@ -269,7 +271,7 @@ main {
   }
 }
 
-@media screen and (min-height: 700px) {
+@media screen and (min-width: 500px) and (min-height: 700px) {
   body {
     background-image: url(../assets/img/grass-bg.jpg);
     background-repeat: no-repeat;
@@ -284,8 +286,6 @@ main {
   }
 
   main {
-    width: 450px;
-    height: 100vh;
     border: 1rem solid #000000e2;
   }
 }
