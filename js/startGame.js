@@ -67,3 +67,59 @@ if (!localStorage.getItem("perso-price")) {
   persoPrice = localStorage.getItem("perso-price");
 }
 $("#perso-price").text(persoPrice);
+
+// initialisation tourrelles
+if (!localStorage.getItem("ketchup")) {
+  const ketchup = {
+    level: 0,
+    cost: 100,
+    damage: 0,
+  };
+  localStorage.setItem("ketchup", JSON.stringify(ketchup));
+} else {
+  ketchup = JSON.parse(localStorage.getItem("ketchup"));
+  if (ketchup.level > 0) {
+    const turretBottle = document.getElementById("bottle-ketchup");
+    turretBottle.style.visibility = "visible";
+    const button = document.getElementById("ketchup");
+    button.classList.add("green");
+    button.classList.remove("gray");
+  }
+}
+
+if (!localStorage.getItem("mayo")) {
+  const mayo = {
+    level: 0,
+    cost: 500,
+    damage: 0,
+  };
+  localStorage.setItem("mayo", JSON.stringify(mayo));
+} else {
+  mayo = JSON.parse(localStorage.getItem("mayo"));
+  if (mayo.level > 0) {
+    const turretBottle = document.getElementById("bottle-mayo");
+    turretBottle.style.visibility = "visible";
+    const button = document.getElementById("mayo");
+    button.classList.add("green");
+    button.classList.remove("gray");
+  }
+}
+
+if (!localStorage.getItem("bbq")) {
+  const bbq = {
+    level: 0,
+    cost: 1000,
+    damage: 0,
+  };
+  localStorage.setItem("bbq", JSON.stringify(bbq));
+} else {
+  bbq = JSON.parse(localStorage.getItem("bbq"));
+
+  if (bbq.level > 0) {
+    const turretBottle = document.getElementById("bottle-bbq");
+    turretBottle.style.visibility = "visible";
+    const button = document.getElementById("bbq");
+    button.classList.add("green");
+    button.classList.remove("gray");
+  }
+}

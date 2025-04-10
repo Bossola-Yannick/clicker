@@ -1,23 +1,27 @@
 // tourelles
-const ketchup = {
-  level: 0,
-  cost: 100,
-  damage: 0,
-};
-const mayo = {
-  level: 0,
-  cost: 500,
-  damage: 0,
-};
-const bbq = {
-  level: 0,
-  cost: 1000,
-  damage: 0,
-};
+// const ketchup = {
+//   level: 0,
+//   cost: 100,
+//   damage: 0,
+// };
+// const mayo = {
+//   level: 0,
+//   cost: 500,
+//   damage: 0,
+// };
+// const bbq = {
+//   level: 0,
+//   cost: 1000,
+//   damage: 0,
+// };
 
-localStorage.setItem("ketchup", JSON.stringify(ketchup));
-localStorage.setItem("mayo", JSON.stringify(mayo));
-localStorage.setItem("bbq", JSON.stringify(bbq));
+// localStorage.setItem("ketchup", JSON.stringify(ketchup));
+// localStorage.setItem("mayo", JSON.stringify(mayo));
+// localStorage.setItem("bbq", JSON.stringify(bbq));
+
+ketchup = JSON.parse(localStorage.getItem("ketchup"));
+mayo = JSON.parse(localStorage.getItem("mayo"));
+bbq = JSON.parse(localStorage.getItem("bbq"));
 
 // Element boutons
 const turretKetchup = document.getElementById("ketchup");
