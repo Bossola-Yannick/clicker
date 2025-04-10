@@ -23,6 +23,20 @@ localStorage.setItem("bbq", JSON.stringify(bbq));
 const turretKetchup = document.getElementById("ketchup");
 const turretMayo = document.getElementById("mayo");
 const turretBbq = document.getElementById("bbq");
+// Element level
+const ketchupLevel = document.getElementById("level-ketchup");
+ketchupLevel.innerText = ketchup.level;
+const mayoLevel = document.getElementById("level-mayo");
+mayoLevel.innerText = mayo.level;
+const bbqLevel = document.getElementById("level-bbq");
+bbqLevel.innerText = bbq.level;
+// Element prix
+const ketchupCost = document.getElementById("cost-ketchup");
+ketchupCost.innerText = ketchup.cost;
+const mayoCost = document.getElementById("cost-mayo");
+mayoCost.innerText = mayo.cost;
+const bbqCost = document.getElementById("cost-bbq");
+bbqCost.innerText = bbq.cost;
 // score element
 const friesBox = document.getElementById("fries");
 
@@ -55,7 +69,10 @@ const buyTurret = (turret, score, turretName) => {
       turretBottle.style.visibility = "visible";
     }
   } else {
-    console.log(score, " pas assez de frites");
+    button.classList.add("maxLevel");
+    setTimeout(() => {
+      button.classList.remove("maxLevel");
+    }, 100);
   }
 };
 
