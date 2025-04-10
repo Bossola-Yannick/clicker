@@ -84,8 +84,12 @@ $("#level-points").text(level);
 if (!localStorage.getItem("ketchup")) {
   const ketchup = {
     level: 0,
-    cost: 100,
-    damage: 0,
+    baseCost: 10,
+    cost: 10,
+    costX: 1.2,
+    baseDamage: 1,
+    damage: 1,
+    damageX: 1,
   };
   localStorage.setItem("ketchup", JSON.stringify(ketchup));
 } else {
@@ -102,8 +106,12 @@ if (!localStorage.getItem("ketchup")) {
 if (!localStorage.getItem("mayo")) {
   const mayo = {
     level: 0,
-    cost: 500,
-    damage: 0,
+    baseCost: 50,
+    cost: 50,
+    costX: 1.17,
+    baseDamage: 1.5,
+    damage: 1.5,
+    damageX: 1.05,
   };
   localStorage.setItem("mayo", JSON.stringify(mayo));
 } else {
@@ -120,8 +128,12 @@ if (!localStorage.getItem("mayo")) {
 if (!localStorage.getItem("bbq")) {
   const bbq = {
     level: 0,
-    cost: 1000,
-    damage: 0,
+    baseCost: 200,
+    cost: 200,
+    costX: 1.13,
+    baseDamage: 2.5,
+    damage: 2.5,
+    damageX: 1.12,
   };
   localStorage.setItem("bbq", JSON.stringify(bbq));
 } else {
@@ -135,3 +147,8 @@ if (!localStorage.getItem("bbq")) {
     button.classList.remove("gray");
   }
 }
+
+const clickBox = document.getElementById("start-game");
+setTimeout(() => {
+  clickBox.innerText = "";
+}, 2300);
