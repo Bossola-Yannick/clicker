@@ -1,6 +1,7 @@
 // gestion des click générant des points
-$("#click-box").on("click", function (e) {
+$("body").on("click", ".potato", function (e) {
   e.stopPropagation;
+  $(this).remove();
   addPoints();
 });
 // gestion du click

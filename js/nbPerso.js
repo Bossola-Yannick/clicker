@@ -2,6 +2,7 @@ const upgradeNbPerso = () => {
   let valNbPerso = localStorage.getItem("nb-perso");
   let downFries = parseInt(localStorage.getItem("fries"));
   let persoPrice = parseInt(localStorage.getItem("perso-price"));
+  console.log(valNbPerso);
 
   let level = $("#upgradeNbPerso").attr("value");
   if (downFries >= persoPrice) {
@@ -19,7 +20,7 @@ const upgradeNbPerso = () => {
         valNbPerso = "1";
         localStorage.setItem("nb-perso", valNbPerso);
         $("#level-nbPerso").text("1");
-        persoPrice += persoPrice * 1.5;
+        persoPrice = 2500;
         localStorage.setItem("perso-price", persoPrice);
         $("#perso-price").text(persoPrice);
         break;
@@ -29,7 +30,7 @@ const upgradeNbPerso = () => {
         valNbPerso = "2";
         localStorage.setItem("nb-perso", valNbPerso);
         $("#level-nbPerso").text("2");
-        persoPrice += persoPrice * 1.5;
+        persoPrice = 6000;
         localStorage.setItem("perso-price", persoPrice);
         $("#perso-price").text(persoPrice);
         break;
@@ -39,7 +40,7 @@ const upgradeNbPerso = () => {
         valNbPerso = "3";
         localStorage.setItem("nb-perso", valNbPerso);
         $("#level-nbPerso").text("3");
-        persoPrice += persoPrice * 1.5;
+        persoPrice = 17000;
         localStorage.setItem("perso-price", persoPrice);
         $("#perso-price").text(persoPrice);
         break;

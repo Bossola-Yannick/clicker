@@ -3,10 +3,13 @@ let fries;
 let levelPerso;
 let levelPrice;
 let persoPrice;
-
+let valNbPerso = localStorage.getItem("nb-perso");
 // récupération des données de jeu si elle existe
 if (localStorage.getItem("nb-perso")) {
-  $("#upgradeNbPerso").removeClass("gray").addClass("green");
+  $("#upgradeNbPerso")
+    .removeClass("gray")
+    .addClass("green")
+    .attr({ value: valNbPerso });
   $("#level-nbPerso").text(localStorage.getItem("nb-perso"));
   let nbPerso = parseInt(localStorage.getItem("nb-perso"));
   switch (nbPerso) {
