@@ -2,10 +2,6 @@ ketchup = JSON.parse(localStorage.getItem("ketchup"));
 mayo = JSON.parse(localStorage.getItem("mayo"));
 bbq = JSON.parse(localStorage.getItem("bbq"));
 
-// Element boutons
-const turretKetchup = document.getElementById("ketchup");
-const turretMayo = document.getElementById("mayo");
-const turretBbq = document.getElementById("bbq");
 // Element level
 const ketchupLevel = document.getElementById("level-ketchup");
 ketchupLevel.innerText = ketchup.level;
@@ -20,10 +16,10 @@ const mayoCost = document.getElementById("cost-mayo");
 mayoCost.innerText = mayo.cost;
 const bbqCost = document.getElementById("cost-bbq");
 bbqCost.innerText = bbq.cost;
-// score element
+// Score élement
 const friesBox = document.getElementById("fries");
 
-// Exemple JS
+// Calcul des prix et des degats
 const getCost = (turret) => {
   return Math.floor(turret.baseCost * Math.pow(turret.costX, turret.level));
 };
@@ -35,7 +31,7 @@ const getDPS = (turret) => {
 };
 
 // **************************
-// ACHAT LEVEL UP
+// ACHAT NIVEAU
 // **************************
 const buyTurret = (turret, score, turretName) => {
   const turretLevel = document.getElementById(`level-${turretName}`);
@@ -48,12 +44,12 @@ const buyTurret = (turret, score, turretName) => {
     friesBox.innerText = score;
     button.classList.remove("gray");
     button.classList.add("green");
-    // modif localStorage
+    // modification sur localStorage
     turret.level += 1;
     turret.cost = getCost(turret);
     turret.damage = getDPS(turret);
     localStorage.setItem(turretName, JSON.stringify(turret));
-    // modif affichage
+    // modification sur l'affichage
     turretLevel.innerText = turret.level;
     turretCost.innerText = turret.cost;
     console.log(score);
@@ -69,22 +65,6 @@ const buyTurret = (turret, score, turretName) => {
     }, 100);
   }
 };
-
-turretKetchup.addEventListener("click", () => {
-  fries = parseInt(localStorage.getItem("fries"));
-  const value = turretKetchup.getAttribute("value");
-  buyTurret(ketchup, fries, value);
-});
-turretMayo.addEventListener("click", () => {
-  fries = parseInt(localStorage.getItem("fries"));
-  const value = turretMayo.getAttribute("value");
-  buyTurret(mayo, fries, value);
-});
-turretBbq.addEventListener("click", () => {
-  fries = parseInt(localStorage.getItem("fries"));
-  const value = turretBbq.getAttribute("value");
-  buyTurret(bbq, fries, value);
-});
 
 // **************************
 // DEGATS TOURELLES
