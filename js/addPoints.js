@@ -15,7 +15,10 @@ const addPoints = () => {
       levelPoints = levelPoints * 4;
   }
   fries = parseInt(localStorage.getItem("fries"));
+  totalFries = parseInt(localStorage.getItem("totalFries"));
   fries += levelPoints;
+  totalFries += levelPoints;
   localStorage.setItem("fries", fries);
+  localStorage.setItem("totalFries", totalFries);
   $("#fries").text(fries);
 };

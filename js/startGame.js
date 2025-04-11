@@ -1,46 +1,31 @@
 // initilisation du jeu
 let fries;
+let totalFries;
 let levelPerso;
 let levelPrice;
 let persoPrice;
-let valNbPerso = localStorage.getItem("nb-perso");
 let level;
 // récupération des données de jeu si elle existe
-if (localStorage.getItem("nb-perso")) {
+
+//initialisation nombre de nuggets plus
+if (!localStorage.getItem("nb-perso")) {
+  localStorage.setItem("nb-perso", 0);
+  $("#upgradeNbPerso").attr({ value: 1 }).addClass("gray");
+  $("#level-nbPerso").text("0");
+  $("#perso-price").text("1000");
+} else {
+  let nbPerso = parseInt(localStorage.getItem("nb-perso"));
+  persoPrice = localStorage.getItem("perso-price") || "1000";
   $("#upgradeNbPerso")
     .removeClass("gray")
-    .addClass("green")
-    .attr({ value: valNbPerso });
-  $("#level-nbPerso").text(localStorage.getItem("nb-perso"));
-  let nbPerso = parseInt(localStorage.getItem("nb-perso"));
-  switch (nbPerso) {
-    case 1:
-      $("#add-nuggets-one").removeClass("nuggets-hidden");
-      break;
-    case 2:
-      $("#add-nuggets-one").removeClass("nuggets-hidden");
-      $("#add-nuggets-two").removeClass("nuggets-hidden");
-      break;
-    case 3:
-      $("#add-nuggets-one").removeClass("nuggets-hidden");
-      $("#add-nuggets-two").removeClass("nuggets-hidden");
-      $("#add-nuggets-tree").removeClass("nuggets-hidden");
-      break;
-    case 4:
-      $("#add-nuggets-one").removeClass("nuggets-hidden");
-      $("#add-nuggets-two").removeClass("nuggets-hidden");
-      $("#add-nuggets-tree").removeClass("nuggets-hidden");
-      $("#add-nuggets-for").removeClass("nuggets-hidden");
-      $("#upgradeNbPerso")
-        .attr({ value: "max" })
-        .removeClass("green")
-        .addClass("maxLevel");
-      $("#level-nbPerso").text("max");
-      $("#perso-price").text("max level");
-      break;
-
-      break;
-  }
+    .addClass(nbPerso === 4 ? "maxLevel" : "green")
+    .attr({ value: nbPerso === 4 ? "max" : nbPerso + 1 });
+  $("#level-nbPerso").text(nbPerso === 4 ? "max" : nbPerso);
+  $("#perso-price").text(nbPerso === 4 ? "max level" : persoPrice);
+  if (nbPerso >= 1) $("#add-nuggets-one").removeClass("nuggets-hidden");
+  if (nbPerso >= 2) $("#add-nuggets-two").removeClass("nuggets-hidden");
+  if (nbPerso >= 3) $("#add-nuggets-tree").removeClass("nuggets-hidden");
+  if (nbPerso === 4) $("#add-nuggets-for").removeClass("nuggets-hidden");
 }
 
 // initilisation fries
@@ -49,9 +34,16 @@ if (!localStorage.getItem("fries")) {
   fries = localStorage.getItem("fries");
 } else {
   fries = localStorage.getItem("fries");
-  // $("#frites").text(fries);
 }
 $("#fries").text(fries);
+
+// initilisation TotalFries pour augmentation niveau
+if (!localStorage.getItem("totalFries")) {
+  localStorage.setItem("totalFries", 0);
+  totalFries = localStorage.getItem("totalFries");
+} else {
+  totalFries = localStorage.getItem("totalFries");
+}
 
 // initialisation perso
 if (!localStorage.getItem("level-perso")) {

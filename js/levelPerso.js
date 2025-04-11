@@ -7,8 +7,6 @@ const upgradePerso = () => {
     localStorage.setItem("fries", downFries);
     $("#fries").text(downFries);
     levelPerso += Math.ceil(levelPerso / 10);
-    console.log(levelPerso);
-
     localStorage.setItem("level-perso", levelPerso);
     if (pointsLevelPrice < 100000) {
       pointsLevelPrice = Math.ceil(levelPerso * 10) * 2;

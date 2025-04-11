@@ -22,6 +22,7 @@ $("body").on("click", ".potato", function (e) {
   }
   $(this).remove();
   addPoints();
+  leveling();
 });
 
 // gestion du click
@@ -30,8 +31,8 @@ $("#upgradeLevelPoints").on("click", function () {
 });
 
 // gestion du nombre de personnage
-let nbPersoLevel = parseInt(localStorage.getItem("nb-perso"));
 $("#upgradeNbPerso").on("click", function () {
+  let nbPersoLevel = parseInt(localStorage.getItem("nb-perso"));
   if (nbPersoLevel !== 4) {
     upgradeNbPerso();
   }

@@ -2,16 +2,15 @@ const upgradeNbPerso = () => {
   let valNbPerso = localStorage.getItem("nb-perso");
   let downFries = parseInt(localStorage.getItem("fries"));
   let persoPrice = parseInt(localStorage.getItem("perso-price"));
-  console.log(valNbPerso);
 
   let level = $("#upgradeNbPerso").attr("value");
   if (downFries >= persoPrice) {
     if (!localStorage.getItem("nb-perso")) {
       localStorage.setItem("nb-perso", "1");
     }
-    downFries -= persoPrice;
     switch (level) {
       case "1":
+        downFries -= persoPrice;
         $("#add-nuggets-one").removeClass("nuggets-hidden");
         $("#upgradeNbPerso")
           .attr({ value: "2" })
@@ -25,6 +24,7 @@ const upgradeNbPerso = () => {
         $("#perso-price").text(persoPrice);
         break;
       case "2":
+        downFries -= persoPrice;
         $("#add-nuggets-two").removeClass("nuggets-hidden");
         $("#upgradeNbPerso").attr({ value: "3" });
         valNbPerso = "2";
@@ -35,6 +35,7 @@ const upgradeNbPerso = () => {
         $("#perso-price").text(persoPrice);
         break;
       case "3":
+        downFries -= persoPrice;
         $("#add-nuggets-tree").removeClass("nuggets-hidden");
         $("#upgradeNbPerso").attr({ value: "4" });
         valNbPerso = "3";
@@ -45,6 +46,7 @@ const upgradeNbPerso = () => {
         $("#perso-price").text(persoPrice);
         break;
       case "4":
+        downFries -= persoPrice;
         $("#add-nuggets-for").removeClass("nuggets-hidden");
         $("#upgradeNbPerso")
           .attr({ value: "max" })
