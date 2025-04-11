@@ -1,9 +1,24 @@
+// Lancement du jeu
+$("#start-game-button").on("click", function () {
+  $("#start-game").remove();
+  $(this).remove();
+  playMusik();
+  startGame();
+  setInterval(dmgTurret, 1000);
+});
+
 // gestion des click générant des points
 $("body").on("click", ".potato", function (e) {
-  e.stopPropagation;
+  e.stopPropagation();
+  const splash = $("#splash").get(0);
+  if (splash) {
+    splash.currentTime = 0;
+    splash.play();
+  }
   $(this).remove();
   addPoints();
 });
+
 // gestion du click
 $("#upgradeLevelPoints").on("click", function () {
   upgradePerso();

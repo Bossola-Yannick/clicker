@@ -10,4 +10,7 @@ const potatoMaker = () => {
   potato.css("top", imgTop);
   potato.css("left", imgLeft);
 };
-setInterval(potatoMaker, 700);
+const startGame = () => {
+  potatoMaker();
+  setInterval(potatoMaker, 700);
+};

@@ -84,12 +84,14 @@ const dmgTurret = () => {
     friesUpdate += ketchup.damage;
     splashKet.style.visibility = "visible";
     setTimeout(() => {
+      turretSound();
       splashKet.style.visibility = "hidden";
     }, 50);
   }
   if (mayo.level > 0) {
     friesUpdate += mayo.damage;
     setTimeout(() => {
+      turretSound();
       splashMay.style.visibility = "visible";
       setTimeout(() => {
         splashMay.style.visibility = "hidden";
@@ -99,6 +101,7 @@ const dmgTurret = () => {
   if (bbq.level > 0) {
     friesUpdate += bbq.damage;
     setTimeout(() => {
+      turretSound();
       splashBbq.style.visibility = "visible";
       setTimeout(() => {
         splashBbq.style.visibility = "hidden";
@@ -110,4 +113,10 @@ const dmgTurret = () => {
   friesBox.innerText = friesUpdate;
 };
 
-setInterval(dmgTurret, 1000);
+const turretSound = () => {
+  const turretSound = $("#turretSound").get(0);
+  if (turretSound) {
+    turretSound.currentTime = 0;
+    turretSound.play();
+  }
+};
