@@ -3,7 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Call Of Nuggets</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/icon-fav.png" />
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/startGame.js" defer></script>
+    <script src="./js/clickEvent.js" defer></script>
+    <script src="./js/levelPerso.js" defer></script>
+    <script src="./js/nbPerso.js" defer></script>
+    <script src="./js/addPoints.js" defer></script>
+    <script src="./js/turrets.js" defer></script>
+    <script src="./js/patatoes.js" defer></script>
+    <script src="./js/verifBuy.js" defer></script>
+
+    <link href="styles/styles.css" rel="stylesheet" />
   </head>
-  <body></body>
+  <body>
+    <main>
+      <section id="user-body">
+        <!-- score -->
+        <div class="score">
+          <p>Frites: <span id="fries"></span></p>
+        </div>
+        <!-- personnages -->
+        <div class="nuggets-box">
+          <div class="nuggets-two">
+            <img
+              id="add-nuggets-tree"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
+            <img
+              id="add-nuggets-one"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
+          </div>
+          <div class="nuggets-solo">
+            <img
+              class="big-nugget"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
+          </div>
+          <div class="nuggets-two">
+            <img
+              id="add-nuggets-for"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
+            <img
+              id="add-nuggets-two"
+              class="small-nuggets nuggets-hidden"
+              src="./assets/img/nuggetsRambo-detour.png"
+            />
+          </div>
+        </div>
+        <!-- tourrelles -->
+        <div class="turrets">
+          <div class="box-ketchup">
+            <img
+              id="bottle-ketchup"
+              class="bottle-ketchup"
+              src="./assets/img/ketchup-bottle.png"
+            />
+            <img
+              id="splash-ketchup"
+              class="splash-ketchup"
+              src="./assets/img/ketchup-splash.png"
+            />
+          </div>
+          <img class="sandbag" src="./assets/img/sandbag.png" />
+          <div class="box-mayo">
+            <img
+              id="bottle-mayo"
+              class="bottle-mayo"
+              src="./assets/img/mayo-bottle.png"
+            />
+            <img
+              id="splash-mayo"
+              class="splash-mayo"
+              src="./assets/img/mayo-splash.png"
+            />
+          </div>
+          <img class="sandbag" src="./assets/img/sandbag.png" />
+          <div class="box-bbq">
+            <img
+              id="bottle-bbq"
+              class="bottle-bbq"
+              src="./assets/img/bbq-bottle.png"
+            />
+            <img
+              id="splash-bbq"
+              class="splash-bbq"
+              src="./assets/img/bbq-splash.png"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="game-body">
+        <!-- début de la box patate -->
+        <div id="click-box">
+          <p id="start-game">Saucez les !</p>
+          <div id="start-game-button" class="big-button gray">
+            <p>START GAME</p>
+          </div>
+          <!-- ICI se déroule l'attaque des Potatos -->
+        </div>
+        <!-- fin de la box patate -->
+        <!-- boutique -->
+        <div class="box-big-button">
+          <div id="upgradeLevelPoints" class="big-button gray">
+            <p>Level: <span id="level-points">1</span></p>
+            <p class="object">+ de points</p>
+            <p>Frites: <span id="level-price"></span></p>
+          </div>
+          <div id="upgradeNbPerso" class="big-button gray" value="1">
+            <p>Level: <span id="level-nbPerso"></span></p>
+            <p class="object">+ de perso</p>
+            <p>Frites: <span id="perso-price"></span></p>
+          </div>
+        </div>
+        <div class="box-small-button">
+          <div id="ketchup" value="ketchup" class="small-button gray">
+            <p>Level: <span id="level-ketchup"></span></p>
+            <p class="object">Ketchuprelle</p>
+            <p>Frites: <span id="cost-ketchup"></span></p>
+          </div>
+          <div id="mayo" value="mayo" class="small-button gray">
+            <p>Level: <span id="level-mayo"></span></p>
+            <p class="object">Mayorelle</p>
+            <p>Frites: <span id="cost-mayo"></span></p>
+          </div>
+          <div id="bbq" value="bbq" class="small-button gray">
+            <p>Level: <span id="level-bbq"></span></p>
+            <p class="object">Barbekurelle</p>
+            <p>Frites: <span id="cost-bbq"></span></p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <audio
+      id="musik"
+      src="./assets/sound/cartoon-funland-284275.mp3"
+      loop
+    ></audio>
+    <audio id="splash" src="./assets/sound/splash.mp3"></audio>
+    <audio id="turretSound" src="./assets/sound/turrets.mp3"></audio>
+  </body>
 </html>
