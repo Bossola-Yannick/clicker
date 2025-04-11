@@ -31,7 +31,14 @@ if (localStorage.getItem("nb-perso")) {
       $("#add-nuggets-two").removeClass("nuggets-hidden");
       $("#add-nuggets-tree").removeClass("nuggets-hidden");
       $("#add-nuggets-for").removeClass("nuggets-hidden");
-      $("#upgradeNbPerso").removeClass("green").addClass("maxLevel");
+      $("#upgradeNbPerso")
+        .attr({ value: "max" })
+        .removeClass("green")
+        .addClass("maxLevel");
+      $("#level-nbPerso").text("max");
+      $("#perso-price").text("max level");
+      break;
+
       break;
   }
 }

@@ -53,6 +53,7 @@ const upgradeNbPerso = () => {
         valNbPerso = "4";
         localStorage.setItem("nb-perso", valNbPerso);
         $("#level-nbPerso").text("max");
+        persoPrice = 0;
         localStorage.setItem("perso-price", persoPrice);
         $("#perso-price").text("max level");
         break;
