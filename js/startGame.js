@@ -155,7 +155,11 @@ if (!localStorage.getItem("bbq")) {
   }
 }
 
-const clickBox = document.getElementById("start-game");
-setTimeout(() => {
-  clickBox.innerText = "";
-}, 2300);
+// musik
+const playMusik = () => {
+  const musik = $("#musik").get(0);
+  if (musik) {
+    musik.currentTime = 0;
+    musik.play();
+  }
+};

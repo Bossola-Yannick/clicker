@@ -199,7 +199,8 @@ main {
   height: 100%;
   margin: 0 auto;
   position: relative;
-  cursor: url("../assets/img/pngegg3232.png"), crosshair;
+  cursor: crosshair;
+  /* cursor: url("../assets/img/pngegg3232.png"), crosshair; */
   overflow: hidden;
   flex: 1;
   display: flex;
@@ -250,7 +251,8 @@ main {
   height: 5rem;
   position: absolute;
   animation: 3s linear 1s infinite alternate slidein;
-  cursor: url("../assets/img/pngegg3232.png"), crosshair;
+  /* cursor: url("../assets/img/pngegg3232.png"), crosshair; */
+  cursor: crosshair;
 }
 .potato-image {
   max-width: 100%;
@@ -261,8 +263,32 @@ main {
   align-content: center;
   text-align: center;
   font-size: 2rem;
-  font-weight: bolder;
+  font-weight: bold;
   color: red;
+  padding: 2rem;
+}
+#start-game-button {
+  flex: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  text-decoration: none;
+  color: red;
+  font-size: 2rem;
+  border-radius: 50px;
+  width: 60%;
+  padding: 1rem;
+  margin: 0 auto;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  background-color: [object object];
+  background-image: linear-gradient(180deg, rgb(80, 226, 22), rgb(19, 226, 99));
+}
+#start-game-button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 0 rgba(0, 0, 0, 0);
 }
 
 @keyframes slidein {
