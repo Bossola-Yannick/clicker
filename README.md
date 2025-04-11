@@ -49,7 +49,7 @@ Ce qui était demandé :
 
 ## Capture d'écran
 
-![ScreenShot du jeu](/asset/img/screenshot.png)
+![ScreenShot du jeu](/assets/img/screenshot.png)
 
 ## 👀 Jouer maintenant
 
