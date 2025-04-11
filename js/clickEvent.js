@@ -1,12 +1,17 @@
 // Lancement du jeu
 $("#start-game-button").on("click", function () {
   $("#start-game").remove();
+  $("#reset-game-button").remove();
   $(this).remove();
   playMusik();
   startGame();
   setInterval(dmgTurret, 1000);
 });
-
+// Reset du jeu
+$("#reset-game-button").on("click", function () {
+  localStorage.clear();
+  location.reload();
+});
 // gestion des click générant des points
 $("body").on("click", ".potato", function (e) {
   e.stopPropagation();
