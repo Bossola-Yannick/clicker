@@ -53,6 +53,4 @@ Ce qui était demandé :
 
 ## 👀 Jouer maintenant
 
-Vous pouvez découvrir le site créé grâce à Github Pages
-
 💥[Call of Nuggets](https://yannick-bossola.students-laplateforme.io/clicker/)🍗
