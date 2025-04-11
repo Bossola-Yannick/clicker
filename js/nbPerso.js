@@ -64,6 +64,6 @@ const upgradeNbPerso = () => {
     $("#upgradeNbPerso").removeClass("green").addClass("maxLevel");
     setTimeout(() => {
       $("#upgradeNbPerso").removeClass("maxLevel").addClass("green");
-    }, 1000);
+    }, 500);
   }
 };
