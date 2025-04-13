@@ -1,3 +1,7 @@
+const ketchup = JSON.parse(localStorage.getItem("ketchup"));
+const mayo = JSON.parse(localStorage.getItem("mayo"));
+const bbq = JSON.parse(localStorage.getItem("bbq"));
+
 const potatoMaker = () => {
   totalFries = parseInt(localStorage.getItem("totalFries"));
   const potato = $("<span></span>").addClass("potato");
@@ -19,13 +23,31 @@ const potatoMaker = () => {
 
 // fonction qui permet de lancer plusieur patate à la foi
 const multiPotato = (myFunction) => {
-  let xPotato = Math.ceil(Math.random() * (3 - 1) + 1);
-  for (let i = 0; i < xPotato; i++) {
-    myFunction();
+  if (ketchup.level >= 1 && mayo.level >= 1 && bbq.level >= 1) {
+    let xPotato = Math.ceil(Math.random() * (5 - 1) + 1);
+    for (let i = 0; i < xPotato; i++) {
+      myFunction();
+    }
+  } else if (
+    (ketchup.level >= 1 && mayo.level >= 1) ||
+    (ketchup.level >= 1 && bbq.level >= 1) ||
+    (mayo.level >= 1 && bbq.level >= 1)
+  ) {
+    let xPotato = Math.ceil(Math.random() * (4 - 1) + 1);
+    for (let i = 0; i < xPotato; i++) {
+      myFunction();
+    }
+  } else if (ketchup.level >= 1 || mayo.level >= 1 || bbq.level >= 1) {
+    let xPotato = Math.ceil(Math.random() * (3 - 1) + 1);
+    for (let i = 0; i < xPotato; i++) {
+      myFunction();
+    }
+  } else {
+    potatoMaker();
   }
 };
 
 // Lancement du jeu lors de l'apuis sur START GAME
 const startGame = () => {
-  setInterval(() => multiPotato(potatoMaker), 500);
+  setInterval(() => multiPotato(potatoMaker), 700);
 };
