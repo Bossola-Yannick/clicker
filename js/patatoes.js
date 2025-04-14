@@ -24,7 +24,7 @@ const potatoMaker = () => {
 // fonction qui permet de lancer plusieur patate à la foi
 const multiPotato = (myFunction) => {
   if (ketchup.level >= 1 && mayo.level >= 1 && bbq.level >= 1) {
-    let xPotato = Math.ceil(Math.random() * (5 - 1) + 1);
+    let xPotato = Math.floor(Math.random() * (9 - 4 + 1)) + 4;
     for (let i = 0; i < xPotato; i++) {
       myFunction();
     }
@@ -33,12 +33,12 @@ const multiPotato = (myFunction) => {
     (ketchup.level >= 1 && bbq.level >= 1) ||
     (mayo.level >= 1 && bbq.level >= 1)
   ) {
-    let xPotato = Math.ceil(Math.random() * (4 - 1) + 1);
+    let xPotato = Math.floor(Math.random() * (7 - 4 + 1)) + 4;
     for (let i = 0; i < xPotato; i++) {
       myFunction();
     }
   } else if (ketchup.level >= 1 || mayo.level >= 1 || bbq.level >= 1) {
-    let xPotato = Math.ceil(Math.random() * (3 - 1) + 1);
+    let xPotato = Math.floor(Math.random() * (5 - 3 + 1)) + 3;
     for (let i = 0; i < xPotato; i++) {
       myFunction();
     }
@@ -49,5 +49,5 @@ const multiPotato = (myFunction) => {
 
 // Lancement du jeu lors de l'apuis sur START GAME
 const startGame = () => {
-  setInterval(() => multiPotato(potatoMaker), 700);
+  setInterval(() => multiPotato(potatoMaker), 1000);
 };
