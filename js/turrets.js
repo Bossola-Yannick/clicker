@@ -52,8 +52,6 @@ const buyTurret = (turret, score, turretName) => {
     // modification sur l'affichage
     turretLevel.innerText = turret.level;
     turretCost.innerText = turret.cost;
-    console.log(score);
-
     if (turret.level === 1) {
       const turretBottle = document.getElementById(`bottle-${turretName}`);
       turretBottle.style.visibility = "visible";
@@ -71,6 +69,7 @@ const buyTurret = (turret, score, turretName) => {
 // **************************
 const dmgTurret = () => {
   // local storage info
+  let totalFries = parseInt(localStorage.getItem("totalFries"));
   let friesUpdate = parseInt(localStorage.getItem("fries"));
   const ketchup = JSON.parse(localStorage.getItem("ketchup"));
   const mayo = JSON.parse(localStorage.getItem("mayo"));
@@ -82,17 +81,32 @@ const dmgTurret = () => {
 
   if (ketchup.level > 0) {
     friesUpdate += ketchup.damage;
+    totalFries += ketchup.damage;
     splashKet.style.visibility = "visible";
+    // selection patate pour supression--------
+    let potatoDie = $(".potato", "#click-box").first();
+    potatoDie.remove();
+    // Leveling Perso--------------------------
+    leveling();
+    // ----------------------------------------
     setTimeout(() => {
       turretSound();
       splashKet.style.visibility = "hidden";
+      potatoDie.remove();
     }, 50);
   }
   if (mayo.level > 0) {
     friesUpdate += mayo.damage;
+    totalFries += mayo.damage;
     setTimeout(() => {
       turretSound();
       splashMay.style.visibility = "visible";
+      // selection patate pour supression--------
+      let potatoDie = $(".potato", "#click-box").first();
+      potatoDie.remove();
+      // Leveling Perso--------------------------
+      leveling();
+      // ----------------------------------------
       setTimeout(() => {
         splashMay.style.visibility = "hidden";
       }, 70);
@@ -100,16 +114,24 @@ const dmgTurret = () => {
   }
   if (bbq.level > 0) {
     friesUpdate += bbq.damage;
+    totalFries += bbq.damage;
     setTimeout(() => {
       turretSound();
       splashBbq.style.visibility = "visible";
+      // selection patate pour supression--------
+      let potatoDie = $(".potato", "#click-box").first();
+      potatoDie.remove();
+      // Leveling Perso--------------------------
+      leveling();
+      // ----------------------------------------
       setTimeout(() => {
         splashBbq.style.visibility = "hidden";
+        potatoDie.remove();
       }, 100);
     }, 150);
   }
-
   localStorage.setItem("fries", friesUpdate);
+  localStorage.setItem("totalFries", totalFries);
   friesBox.innerText = friesUpdate;
 };
 
